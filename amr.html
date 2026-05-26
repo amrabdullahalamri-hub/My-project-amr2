@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form{
+            background-color: white;
+            width: 350px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        }
+
+        h2{
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label{
+            font-size: 18px;
+            color: #444;
+        }
+
+        input{
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus{
+            border-color: #4facfe;
+            box-shadow: 0 0 8px rgba(79,172,254,0.5);
+        }
+
+        button{
+            width: 100%;
+            padding: 12px;
+            border: none;
+            background-color: #4facfe;
+            color: white;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover{
+            background-color: #008cdd;
+        }
+
+        .error{
+            color: red;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <form id="myForm">
+
+        <h2>تسجيل الدخول</h2>
+
+        <label for="ty">الايميل</label><br>
+        <input type="email" required id="ty" placeholder="Enter the email">
+
+        <label for="po">كلمة المرور</label><br>
+        <input type="password" required id="po" placeholder="Enter the password">
+
+        <label for="kl">تأكيد كلمة المرور</label><br>
+        <input type="password" required id="kl" placeholder="Confirm the password">
+
+        <div class="error" id="message"></div>
+
+        <button type="submit">تسجيل الدخول</button>
+
+    </form>
+
+    <script>
+
+        let form = document.getElementById("myForm");
+
+        form.addEventListener("submit", function(event){
+
+            let password = document.getElementById("po").value;
+            let confirmPassword = document.getElementById("kl").value;
+
+            let message = document.getElementById("message");
+
+            if(password !== confirmPassword){
+                //منع ارسال الفورم
+                event.preventDefault();
+                
+                message.innerHTML = "كلمة المرور غير متطابقة";
+
+            }else{
+
+                message.innerHTML = "تم تسجيل الدخول بنجاح";
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
+
+
+
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post">
+         <label for="ty">الايميل  </label><br>
+            <input type="email" required id="ty" placeholder="Enter the email">
+
+            <br><br>
+
+            <label for="po"> كلمة المرور </label><br>
+            <input type="password" required id="po" placeholder="Enter the password">
+            
+            <br><br>
+
+            <label for="kl"> تاكيد كلمة المرور</label><br>
+            <input type="password" required id="kl" placeholder="Enter the password">
+
+            <p>
+           <button type="submit">تسجيل الدخول</button>
+            </p>
+    </form>
+</body>
+</html>
+
+
+
+-->
